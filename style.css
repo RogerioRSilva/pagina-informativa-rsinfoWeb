@@ -291,6 +291,8 @@ body {
     margin-top: 0.5rem;
     color: #e0e0e0;
     font-weight: 500;
+    word-break: break-word;
+    text-align: center;
 }
 
 .telefone{
@@ -298,6 +300,48 @@ body {
     margin-top: 0.3rem;
     color: #e0e0e0;
     font-weight: 700;
+    text-align: center;
+}
+
+/* Ajustes para informações da empresa na navbar mobile */
+.empresa-info-mobile .btn {
+    font-size: 0.98rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    color: #343a40;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+}
+.empresa-info-mobile .btn:active, .empresa-info-mobile .btn:focus {
+    background: #e6fff5;
+    color: #007bff;
+}
+.empresa-info-mobile .collapse {
+    background: rgba(0,0,0,0.03);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    color: #343a40;
+    font-size: 1.05rem;
+}
+.empresa-info-mobile .enderecoEmpresa, .empresa-info-mobile .telefone {
+    color: #343a40;
+    font-size: 1.05rem;
+    margin-top: 0.2rem;
+    font-weight: 500;
+}
+@media (max-width: 600px) {
+    .empresa-info {
+        display: none !important;
+    }
+    .empresa-info-mobile {
+        display: flex !important;
+    }
+    .enderecoEmpresa, .telefone {
+        font-size: 1.05rem !important;
+        color: #343a40 !important;
+        margin-top: 0.2rem !important;
+        font-weight: 500 !important;
+    }
 }
 .navbar-center-title {
     position: relative;

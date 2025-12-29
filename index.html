@@ -23,8 +23,20 @@
                 <!-- Título centralizado -->
                 <div class="flex-grow-1 text-center titulo_navbar">
                     <span class="title-header navbar-center-title">Assistência Técnica Especializada em Notebooks</span>
-                    <span class="enderecoEmpresa">Rua Dr. Afonso Infante Vieira Filho, 5041 - Franca, SP</span>
-                    <span class="telefone bi bi-telephone"> (16) 99178-2850</span>
+                    <!-- Informações da empresa: visível em desktop, colapsável no mobile -->
+                    <div class="empresa-info d-none d-md-flex flex-column align-items-center">
+                        <span class="enderecoEmpresa">Rua Dr. Afonso Infante Vieira Filho, 5041 - Franca, SP</span>
+                        <span class="telefone bi bi-telephone"> (16) 99178-2850</span>
+                    </div>
+                    <div class="empresa-info-mobile d-flex d-md-none flex-column align-items-center mt-1">
+                        <button class="btn btn-sm btn-light px-2 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#empresaCollapse" aria-expanded="false" aria-controls="empresaCollapse" style="font-size:0.95rem;">
+                            <i class="bi bi-info-circle me-1"></i>Informações da empresa
+                        </button>
+                        <div class="collapse mt-1 w-100" id="empresaCollapse">
+                            <span class="enderecoEmpresa">Rua Dr. Afonso Infante Vieira Filho, 5041 - Franca, SP</span><br>
+                            <span class="telefone bi bi-telephone"> (16) 99178-2850</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Menu à direita -->
                 <div class="d-flex align-items-center flex-shrink-0 pe-2">
