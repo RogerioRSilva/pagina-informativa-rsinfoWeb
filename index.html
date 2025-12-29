@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS InfoWeb - InfoPage</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top shadow-sm custom-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0" role="navigation" aria-label="Navegação principal">
+                <!-- Logo à esquerda -->
+                <div class="d-flex align-items-center flex-shrink-0 ps-2" style="min-width: 180px;">
+                    <a class="navbar-brand d-flex align-items-center m-0 p-0" href="#">
+                        <img src="img/LOGO RSInfoWeb OK.png" alt="Logo da RS InfoWeb" class="logo-navbar" aria-hidden="true">
+                    </a>
+                </div>
+                <!-- Título centralizado -->
+                <div class="flex-grow-1 text-center titulo_navbar">
+                    <span class="title-header navbar-center-title">Assistência Técnica Especializada em Notebooks</span>
+                    <span class="enderecoEmpresa">Rua Dr. Afonso Infante Vieira Filho, 5041 - Franca, SP</span>
+                    <span class="telefone bi bi-telephone"> (16) 99178-2850</span>
+                </div>
+                <!-- Menu à direita -->
+                <div class="d-flex align-items-center flex-shrink-0 pe-2">
+                    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto" role="menubar">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#notebooks" role="menuitem" tabindex="0"><i class="bi bi-laptop me-1" aria-hidden="true"></i>Notebooks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#computadores" role="menuitem" tabindex="0"><i class="bi bi-pc-display me-1" aria-hidden="true"></i>Computadores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#impressoras" role="menuitem" tabindex="0"><i class="bi bi-printer me-1" aria-hidden="true"></i>Impressoras</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="header-hero text-center">
+            <h1 class="display-5 fw-bold mt-5 pt-4" tabindex="0">Bem-vindo à RS InfoWeb</h1>
+            <p class="lead" tabindex="0">Dicas para cuidar do seu notebook, computador e impressora</p>
+        </div>
+    </header>
+    <main class="container">
+                <!-- Cards principais para categorias -->
+                <section class="container d-flex flex-column align-items-center justify-content-center py-2">
+                    <div class="row justify-content-center g-4 w-100" style="margin-top:0;margin-bottom:0;">
+                                <div class="col-12 col-md-4 mb-4">
+                                        <div class="card card-category h-100 shadow-lg border-0 text-center card-clickable" data-category="notebooks" tabindex="0" role="button" aria-label="Ver dicas de Notebooks" data-bs-toggle="modal" data-bs-target="#modalNotebooks">
+                                                <div class="card-body py-5">
+                                                        <span class="icon-gradient-bg"><i class="bi bi-laptop"></i></span>
+                                                        <h2 class="card-title mb-2 mt-4">Cuidados com Notebooks</h2>
+                                                        <p class="card-text">Veja dicas para prolongar a vida útil e o desempenho do seu notebook.</p>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="col-12 col-md-4 mb-4">
+                                        <div class="card card-category h-100 shadow-lg border-0 text-center card-clickable" data-category="computadores" tabindex="0" role="button" aria-label="Ver dicas de Computadores" data-bs-toggle="modal" data-bs-target="#modalComputadores">
+                                                <div class="card-body py-5">
+                                                        <span class="icon-gradient-bg"><i class="bi bi-pc-display"></i></span>
+                                                        <h2 class="card-title mb-2 mt-4">Cuidados com Computadores</h2>
+                                                        <p class="card-text">Dicas essenciais para manter seu computador sempre em ordem.</p>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="col-12 col-md-4 mb-4">
+                                        <div class="card card-category h-100 shadow-lg border-0 text-center card-clickable" data-category="impressoras" tabindex="0" role="button" aria-label="Ver dicas de Impressoras" data-bs-toggle="modal" data-bs-target="#modalImpressoras">
+                                                <div class="card-body py-5">
+                                                        <span class="icon-gradient-bg"><i class="bi bi-printer"></i></span>
+                                                        <h2 class="card-title mb-2 mt-4">Cuidados com Impressoras</h2>
+                                                        <p class="card-text">Saiba como evitar problemas e aumentar a durabilidade da sua impressora.</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <!-- Modais para cada categoria, com conteúdo detalhado e barra de rolagem -->
+                <div class="modal fade" id="modalNotebooks" tabindex="-1" aria-labelledby="modalNotebooksLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title" id="modalNotebooksLabel"><i class="bi bi-laptop me-2"></i>Cuidados com Notebooks</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body notebook-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                                <h6 class="fw-bold mt-2 mb-3 text-primary"><i class="bi bi-droplet me-2"></i>Limpeza e Higienização</h6>
+                                <ul class="mb-3">
+                                    <li>Use pano de microfibra levemente umedecido com solução específica. Nunca aplique líquido diretamente na tela.</li>
+                                    <li>Teclado: use pincel macio ou ar comprimido para remover sujeira entre as teclas. Evite líquidos.</li>
+                                    <li>Carcaça: limpe com pano seco ou levemente úmido. Evite produtos abrasivos.</li>
+                                    <li>Entradas e portas: use cotonete seco ou spray de ar para evitar acúmulo de poeira.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-battery-half me-2"></i>Cuidados com a Bateria</h6>
+                                <ul class="mb-3">
+                                    <li>Mantenha a carga entre 20% e 80% para prolongar a vida útil.</li>
+                                    <li>Evite manter o notebook sempre conectado à energia.</li>
+                                    <li>Ative o modo de economia de energia sempre que possível.</li>
+                                    <li>Evite calor excessivo e exposição ao sol.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-tools me-2"></i>Manutenção Preventiva</h6>
+                                <ul class="mb-3">
+                                    <li>Faça revisão anual com técnico de confiança para limpeza interna e verificação de componentes.</li>
+                                    <li>Troque a pasta térmica a cada 1–2 anos, se necessário.</li>
+                                    <li>Monitore o desempenho com programas como HWMonitor, CrystalDiskInfo ou Task Manager.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-lightbulb me-2"></i>Hábitos Inteligentes de Uso</h6>
+                                <ul class="mb-3">
+                                    <li>Evite comer ou beber perto do notebook.</li>
+                                    <li>Não use o notebook como apoio para outros objetos.</li>
+                                    <li>Proteja seus dados com senhas e backups.</li>
+                                    <li>Desligue corretamente — evite forçar o desligamento ou fechar a tampa sem salvar o trabalho.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-briefcase me-2"></i>Transporte e Armazenamento</h6>
+                                <ul class="mb-3">
+                                    <li>Use mochila ou case acolchoado para proteger contra impactos.</li>
+                                    <li>Evite locais úmidos ou abafados.</li>
+                                    <li>Desligue sempre o notebook antes de guardar.</li>
+                                    <li>Não transporte com objetos soltos dentro da mesma bolsa.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-aspect-ratio me-2"></i>Tela e Dobradiças</h6>
+                                <ul class="mb-3">
+                                    <li>Abra e feche pelo centro da tela, sem forçar e devagar.</li>
+                                    <li>Não pressione a tela com objetos ou dedos.</li>
+                                    <li>Evite abrir além do limite de inclinação.</li>
+                                    <li>Limpe com cuidado, sem produtos agressivos.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-shield-check me-2"></i>Sistema e Software</h6>
+                                <ul class="mb-3">
+                                    <li>Mantenha o antivírus atualizado e faça varreduras regulares.</li>
+                                    <li>Atualize o sistema operacional e drivers com frequência.</li>
+                                    <li>Evite instalar programas desconhecidos ou piratas.</li>
+                                    <li>Faça backups regulares dos seus arquivos importantes.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-primary"><i class="bi bi-wind me-2"></i>Temperatura e Ventilação</h6>
+                                <ul class="mb-3">
+                                    <li>Use o notebook em superfícies planas e duras (nada de sofá ou cama!).</li>
+                                    <li>Evite exposição direta ao sol ou ambientes muito quentes.</li>
+                                    <li>Considere uma base refrigerada se usa o notebook por muitas horas seguidas.</li>
+                                    <li>Limpeza interna periódica (idealmente feita por técnico) para remover poeira dos coolers e troca da pasta térmica do processador.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalComputadores" tabindex="-1" aria-labelledby="modalComputadoresLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title" id="modalComputadoresLabel"><i class="bi bi-pc-display me-2"></i>Cuidados com Computadores</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body computador-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                                <h6 class="fw-bold mt-2 mb-3 text-success"><i class="bi bi-droplet me-2"></i>Limpeza</h6>
+                                <ul class="mb-3">
+                                    <li>Desligue e desconecte o computador da energia antes de iniciar a limpeza.</li>
+                                    <li>Use pano macio e levemente umedecido para limpar superfícies externas; evite produtos abrasivos.</li>
+                                    <li>Limpe periodicamente as entradas de ar e ventoinhas com pincel ou ar comprimido.</li>
+                                    <li>Não utilize aspirador de pó diretamente nos componentes internos.</li>
+                                    <li>Evite comer ou beber próximo ao computador para prevenir acidentes.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-success"><i class="bi bi-plug me-2"></i>Energia</h6>
+                                <ul class="mb-3">
+                                    <li>Utilize estabilizador ou nobreak para proteger contra oscilações e quedas de energia.</li>
+                                    <li>Evite ligar muitos equipamentos na mesma tomada.</li>
+                                    <li>Desligue o computador corretamente pelo sistema operacional.</li>
+                                    <li>Mantenha cabos de energia organizados e longe de áreas de passagem.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-success"><i class="bi bi-shield-lock me-2"></i>Software</h6>
+                                <ul class="mb-3">
+                                    <li>Mantenha o sistema operacional e programas sempre atualizados.</li>
+                                    <li>Utilize antivírus confiável e faça varreduras regulares.</li>
+                                    <li>Evite instalar softwares de fontes desconhecidas.</li>
+                                    <li>Faça backup periódico dos dados importantes.</li>
+                                    <li>Limpe arquivos temporários e desinstale programas não utilizados.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-success"><i class="bi bi-tools me-2"></i>Manutenção Preventiva</h6>
+                                <ul class="mb-3">
+                                    <li>Realize revisões periódicas com profissional qualificado, especialmente para limpeza interna.</li>
+                                    <li>Verifique regularmente o funcionamento das ventoinhas.</li>
+                                    <li>Monitore a temperatura dos componentes com softwares específicos.</li>
+                                    <li>Substitua a pasta térmica do processador conforme recomendação do fabricante.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-success"><i class="bi bi-geo-alt me-2"></i>Localização e Ambiente</h6>
+                                <ul class="mb-3">
+                                    <li>Instale o computador em local ventilado, longe de fontes de calor e umidade.</li>
+                                    <li>Evite exposição direta à luz solar.</li>
+                                    <li>Mantenha o equipamento sobre superfície firme e nivelada.</li>
+                                    <li>Não bloqueie as saídas de ar do gabinete.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalImpressoras" tabindex="-1" aria-labelledby="modalImpressorasLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-secondary text-white">
+                                <h5 class="modal-title" id="modalImpressorasLabel"><i class="bi bi-printer me-2"></i>Cuidados com Impressoras</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body impressora-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                                <h6 class="fw-bold mt-2 mb-3 text-secondary"><i class="bi bi-droplet me-2"></i>Limpeza</h6>
+                                <ul class="mb-3">
+                                    <li>Desligue e desconecte a impressora antes de limpar.</li>
+                                    <li>Use pano seco ou levemente umedecido para limpar a parte externa.</li>
+                                    <li>Limpe periodicamente o compartimento de papel para evitar acúmulo de poeira.</li>
+                                    <li>Não utilize álcool ou solventes nas cabeças de impressão.</li>
+                                    <li>Para impressoras a jato de tinta, utilize a função de limpeza automática do driver periodicamente.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-secondary"><i class="bi bi-plug me-2"></i>Energia</h6>
+                                <ul class="mb-3">
+                                    <li>Conecte a impressora em tomadas adequadas, evitando extensões e benjamins.</li>
+                                    <li>Utilize filtro de linha para proteger contra surtos elétricos.</li>
+                                    <li>Desligue a impressora pelo botão próprio, nunca diretamente da tomada.</li>
+                                    <li>Evite ligar/desligar a impressora repetidamente em curtos intervalos.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-secondary"><i class="bi bi-tools me-2"></i>Manutenção Preventiva</h6>
+                                <ul class="mb-3">
+                                    <li>Realize impressões regulares para evitar ressecamento dos cartuchos (jato de tinta).</li>
+                                    <li>Substitua cartuchos e toners apenas por modelos compatíveis e de boa procedência.</li>
+                                    <li>Siga as recomendações do fabricante para troca de peças e limpeza interna.</li>
+                                    <li>Para impressoras laser, evite tocar no cilindro do toner.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-secondary"><i class="bi bi-file-earmark-text me-2"></i>Papel e Suprimentos</h6>
+                                <ul class="mb-3">
+                                    <li>Utilize sempre papel adequado e de boa qualidade para evitar atolamentos.</li>
+                                    <li>Armazene o papel em local seco e protegido da umidade.</li>
+                                    <li>Não sobrecarregue a bandeja de papel.</li>
+                                    <li>Remova o papel da impressora se ela ficar longos períodos sem uso.</li>
+                                </ul>
+                                <h6 class="fw-bold mt-4 mb-3 text-secondary"><i class="bi bi-geo-alt me-2"></i>Armazenamento e Localização</h6>
+                                <ul class="mb-3">
+                                    <li>Instale a impressora em local plano, ventilado e longe de fontes de calor.</li>
+                                    <li>Evite exposição direta à luz solar.</li>
+                                    <li>Mantenha a impressora coberta quando não estiver em uso por longos períodos para evitar poeira.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </main>
+    <footer class="footer">
+        <p>RS InfoWeb &copy; 2026 | Assistência Técnica Especializada em Notebooks | <span aria-label="Telefone">(16) 99178-2850</span></p>
+    </footer>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
