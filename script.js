@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-// Interatividade para cards de categoria na home
-document.addEventListener('DOMContentLoaded', function() {
+    // Interatividade para cards de categoria na home
     const categoryCards = document.querySelectorAll('.card-clickable');
+    
     categoryCards.forEach(card => {
         card.addEventListener('click', function() {
             const category = card.getAttribute('data-category');
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // window.location.href = category + '.html';
             alert('Em breve: dicas de ' + category.charAt(0).toUpperCase() + category.slice(1));
         });
+
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
