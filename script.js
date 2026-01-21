@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- SISTEMA DE EXPANSÃO DE CARDS ---
     const categoryCards = document.querySelectorAll('.card-clickable');
     let activeSection = null;
+    let activeCard = null;
     
     categoryCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -118,19 +119,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Se clicar no mesmo card que já está aberto, fecha
             if (activeSection === detailsSection && detailsSection.style.display === 'block') {
-                closeSection(detailsSection);
+                closeSection(detailsSection, this);
                 activeSection = null;
+                activeCard = null;
                 return;
             }
             
             // Fecha a seção ativa anterior (se houver)
             if (activeSection && activeSection !== detailsSection) {
-                closeSection(activeSection);
+                closeSection(activeSection, activeCard);
             }
             
             // Abre a nova seção
-            openSection(detailsSection);
+            openSection(detailsSection, this);
             activeSection = detailsSection;
+            activeCard = this;
         });
         
         // Acessibilidade - navegação por teclado
@@ -139,20 +142,69 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 this.click();
             }
+            // Navegação entre cards com setas
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const cards = Array.from(categoryCards);
+                const currentIndex = cards.indexOf(this);
+                let nextIndex;
+                
+                if (e.key === 'ArrowRight') {
+                    nextIndex = (currentIndex + 1) % cards.length;
+                } else {
+                    nextIndex = (currentIndex - 1 + cards.length) % cards.length;
+                }
+                
+                cards[nextIndex].focus();
+            }
         });
     });
     
     // Botões de fechar nas seções de detalhes
     document.querySelectorAll('.btn-close-details').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
             const section = this.closest('.details-section');
-            closeSection(section);
+            closeSection(section, activeCard);
             activeSection = null;
+            
+            // Retorna foco ao card que abriu a seção
+            if (activeCard) {
+                activeCard.focus();
+                activeCard = null;
+            }
+        });
+        
+        // Suporte para fechar com Escape
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                this.click();
+            }
         });
     });
     
+    // Fechar seção com tecla Escape globalmente
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && activeSection && activeSection.style.display === 'block') {
+            closeSection(activeSection, activeCard);
+            if (activeCard) {
+                activeCard.focus();
+            }
+            activeSection = null;
+            activeCard = null;
+        }
+    });
+    
     // Função para abrir seção com animação
-    function openSection(section) {
+    function openSection(section, card) {
+        // Atualiza ARIA attributes
+        section.setAttribute('aria-hidden', 'false');
+        if (card) {
+            card.setAttribute('aria-expanded', 'true');
+            card.classList.add('card-active');
+        }
+        
         section.style.display = 'block';
         section.style.opacity = '0';
         section.style.transform = 'translateY(-20px)';
@@ -164,14 +216,27 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.opacity = '1';
         section.style.transform = 'translateY(0)';
         
-        // Scroll suave até a seção
+        // Scroll suave até a seção e foca no primeiro elemento interativo
         setTimeout(() => {
             section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Move foco para o botão de fechar para melhor acessibilidade
+            const closeBtn = section.querySelector('.btn-close-details');
+            if (closeBtn) {
+                setTimeout(() => closeBtn.focus(), 500);
+            }
         }, 100);
     }
     
     // Função para fechar seção com animação
-    function closeSection(section) {
+    function closeSection(section, card) {
+        // Atualiza ARIA attributes
+        section.setAttribute('aria-hidden', 'true');
+        if (card) {
+            card.setAttribute('aria-expanded', 'false');
+            card.classList.remove('card-active');
+        }
+        
         section.style.opacity = '0';
         section.style.transform = 'translateY(-20px)';
         

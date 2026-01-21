@@ -60,7 +60,7 @@
                     </div>
                     <div class="row justify-content-center g-4 w-100" style="margin-top:0;margin-bottom:0;">
                                 <div class="col-12 col-md-4 mb-4">
-                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="notebooks" tabindex="0" role="button" aria-label="Ver dicas de Notebooks">
+                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="notebooks" tabindex="0" role="button" aria-label="Ver dicas de Notebooks" aria-expanded="false" aria-controls="detailsNotebooks">
                                                 <div class="card-glow"></div>
                                                 <div class="card-body py-5">
                                                         <div class="icon-wrapper">
@@ -74,7 +74,7 @@
                                         </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-4">
-                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="computadores" tabindex="0" role="button" aria-label="Ver dicas de Computadores">
+                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="computadores" tabindex="0" role="button" aria-label="Ver dicas de Computadores" aria-expanded="false" aria-controls="detailsComputadores">
                                                 <div class="card-glow"></div>
                                                 <div class="card-body py-5">
                                                         <div class="icon-wrapper">
@@ -88,7 +88,7 @@
                                         </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-4">
-                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="impressoras" tabindex="0" role="button" aria-label="Ver dicas de Impressoras">
+                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="impressoras" tabindex="0" role="button" aria-label="Ver dicas de Impressoras" aria-expanded="false" aria-controls="detailsImpressoras">
                                                 <div class="card-glow"></div>
                                                 <div class="card-body py-5">
                                                         <div class="icon-wrapper">
@@ -107,11 +107,11 @@
                         <div class="row justify-content-center w-100 mt-4">
                             <div class="col-12">
                                 <!-- Seção Notebooks -->
-                                <div class="details-section" id="detailsNotebooks" style="display: none;">
+                                <div class="details-section" id="detailsNotebooks" style="display: none;" role="region" aria-labelledby="titleNotebooks" aria-hidden="true">
                                     <div class="details-content glass-effect">
                                         <div class="details-header bg-primary text-white">
-                                            <h5><i class="bi bi-laptop me-2"></i>Cuidados com Notebooks</h5>
-                                            <button type="button" class="btn-close-details" aria-label="Fechar">
+                                            <h5 id="titleNotebooks"><i class="bi bi-laptop me-2"></i>Cuidados com Notebooks</h5>
+                                            <button type="button" class="btn-close-details" aria-label="Fechar seção de dicas de Notebooks" tabindex="0">
                                                 <i class="bi bi-x-circle"></i>
                                             </button>
                                         </div>
@@ -176,11 +176,11 @@
                                 </div>
                                 
                                 <!-- Seção Computadores -->
-                                <div class="details-section" id="detailsComputadores" style="display: none;">
+                                <div class="details-section" id="detailsComputadores" style="display: none;" role="region" aria-labelledby="titleComputadores" aria-hidden="true">
                                     <div class="details-content glass-effect">
                                         <div class="details-header bg-success text-white">
-                                            <h5><i class="bi bi-pc-display me-2"></i>Cuidados com Computadores</h5>
-                                            <button type="button" class="btn-close-details" aria-label="Fechar">
+                                            <h5 id="titleComputadores"><i class="bi bi-pc-display me-2"></i>Cuidados com Computadores</h5>
+                                            <button type="button" class="btn-close-details" aria-label="Fechar seção de dicas de Computadores" tabindex="0">
                                                 <i class="bi bi-x-circle"></i>
                                             </button>
                                         </div>
@@ -227,11 +227,11 @@
                                 </div>
                                 
                                 <!-- Seção Impressoras -->
-                                <div class="details-section" id="detailsImpressoras" style="display: none;">
+                                <div class="details-section" id="detailsImpressoras" style="display: none;" role="region" aria-labelledby="titleImpressoras" aria-hidden="true">
                                     <div class="details-content glass-effect">
                                         <div class="details-header bg-secondary text-white">
-                                            <h5><i class="bi bi-printer me-2"></i>Cuidados com Impressoras</h5>
-                                            <button type="button" class="btn-close-details" aria-label="Fechar">
+                                            <h5 id="titleImpressoras"><i class="bi bi-printer me-2"></i>Cuidados com Impressoras</h5>
+                                            <button type="button" class="btn-close-details" aria-label="Fechar seção de dicas de Impressoras" tabindex="0">
                                                 <i class="bi bi-x-circle"></i>
                                             </button>
                                         </div>
