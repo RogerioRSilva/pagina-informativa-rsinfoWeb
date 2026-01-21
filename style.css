@@ -9,6 +9,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body, html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     height: 100%;
@@ -25,6 +30,22 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+/* Previne overflow em todos os containers Bootstrap */
+.container, .container-fluid, .row {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row > * {
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
 }
 
 /* --- PARTÍCULAS DE FUNDO --- */
@@ -69,6 +90,16 @@ body {
 
 .logo-container {
     animation: slideInLeft 0.8s ease;
+    min-width: 150px;
+}
+
+.whatsapp-container {
+    min-width: 120px;
+    justify-content: flex-end;
+}
+
+.navbar-content {
+    gap: 0.5rem;
 }
 
 @keyframes slideInLeft {
@@ -235,11 +266,14 @@ main.container {
     position: relative;
     z-index: 1;
     max-width: 1320px;
+    width: 100%;
     overflow-x: hidden;
 }
 
 .section-header {
     margin-bottom: 3rem;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .section-title {
@@ -266,6 +300,8 @@ main.container {
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 100%;
     min-height: 380px;
     animation: cardFadeIn 0.6s ease forwards;
     opacity: 0;
@@ -600,11 +636,13 @@ main.container {
     color: #00ff88;
 }
 
-/* --- RESPONSIVIDADE --- */
-@media SEÇÃO DE LOCALIZAÇÃO --- */
+/* --- SEÇÃO DE LOCALIZAÇÃO --- */
 .location-section {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .location-info {
@@ -877,9 +915,9 @@ main.container {
         padding: 0.25rem 0.5rem;
     }
     
-    .custom-navbar .d-flex {
-        flex-wrap: wrap;
-        gap: 0.5rem;
+    .navbar-content {
+        flex-wrap: wrap !important;
+        gap: 0.25rem !important;
     }
     
     .logo-navbar {
@@ -887,11 +925,17 @@ main.container {
     }
     
     .logo-container {
-        min-width: 100px !important;
+        min-width: 90px !important;
+        flex-shrink: 0;
+    }
+    
+    .whatsapp-container {
+        min-width: auto !important;
+        margin-left: 0.5rem !important;
     }
     
     .logo-navbar-bg {
-        padding: 0.3rem 0.7rem;
+        padding: 0.3rem 0.6rem;
     }
     
     .btn-whatsapp {
@@ -1075,6 +1119,44 @@ main.container {
     .footer p {
         font-size: 0.75rem;
         line-height: 1.4;
+    }
+}
+
+/* --- MEDIA QUERY EXTRA PARA TELAS MUITO PEQUENAS --- */
+@media (max-width: 400px) {
+    .logo-container {
+        min-width: 80px !important;
+    }
+    
+    .logo-navbar {
+        max-height: 35px;
+    }
+    
+    .btn-whatsapp {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .hero-title {
+        font-size: 1.35rem;
+    }
+    
+    .section-title {
+        font-size: 1.35rem;
+    }
+    
+    .card-tech {
+        min-height: 240px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .icon-gradient-bg {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .icon-gradient-bg i {
+        font-size: 1.8rem;
     }
 }
 
