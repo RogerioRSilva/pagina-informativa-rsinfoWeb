@@ -3,19 +3,6 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // --- TESTAR SE BOOTSTRAP ESTÁ CARREGADO ---
-    console.log('Bootstrap carregado:', typeof bootstrap !== 'undefined');
-    console.log('jQuery necessário?:', typeof $ !== 'undefined');
-    
-    // --- GARANTIR QUE MODAIS FUNCIONEM ---
-    if (typeof bootstrap !== 'undefined') {
-        console.log('Bootstrap Modal disponível:', typeof bootstrap.Modal !== 'undefined');
-        
-        // Forçar inicialização dos modais
-        document.querySelectorAll('.modal').forEach(modalEl => {
-            console.log('Modal encontrado:', modalEl.id);
-        });
-    }
     // --- INICIALIZAR PARTÍCULAS NO FUNDO ---
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
@@ -117,26 +104,81 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
-    // --- INTERATIVIDADE DOS CARDS ---
+    // --- SISTEMA DE EXPANSÃO DE CARDS ---
     const categoryCards = document.querySelectorAll('.card-clickable');
+    let activeSection = null;
     
     categoryCards.forEach(card => {
-        // Acessibilidade - navegação por teclado (Bootstrap gerencia o modal)
+        card.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            const detailsId = 'details' + category.charAt(0).toUpperCase() + category.slice(1);
+            const detailsSection = document.getElementById(detailsId);
+            
+            if (!detailsSection) return;
+            
+            // Se clicar no mesmo card que já está aberto, fecha
+            if (activeSection === detailsSection && detailsSection.style.display === 'block') {
+                closeSection(detailsSection);
+                activeSection = null;
+                return;
+            }
+            
+            // Fecha a seção ativa anterior (se houver)
+            if (activeSection && activeSection !== detailsSection) {
+                closeSection(activeSection);
+            }
+            
+            // Abre a nova seção
+            openSection(detailsSection);
+            activeSection = detailsSection;
+        });
+        
+        // Acessibilidade - navegação por teclado
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                // Buscar o data-bs-target do card e acionar o modal corretamente
-                const targetModal = card.getAttribute('data-bs-target');
-                if (targetModal) {
-                    const modalElement = document.querySelector(targetModal);
-                    if (modalElement && typeof bootstrap !== 'undefined') {
-                        const modal = new bootstrap.Modal(modalElement);
-                        modal.show();
-                    }
-                }
+                this.click();
             }
         });
     });
+    
+    // Botões de fechar nas seções de detalhes
+    document.querySelectorAll('.btn-close-details').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const section = this.closest('.details-section');
+            closeSection(section);
+            activeSection = null;
+        });
+    });
+    
+    // Função para abrir seção com animação
+    function openSection(section) {
+        section.style.display = 'block';
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(-20px)';
+        
+        // Força o reflow
+        section.offsetHeight;
+        
+        section.style.transition = 'all 0.4s ease';
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+        
+        // Scroll suave até a seção
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+    
+    // Função para fechar seção com animação
+    function closeSection(section) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+            section.style.display = 'none';
+        }, 400);
+    }
 
     // --- ANIMAÇÃO DE ENTRADA DOS ELEMENTOS ---
     const observerOptions = {
@@ -164,6 +206,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.opacity = '1';
     }, 100);
 
-    console.log('🚀 RS InfoWeb - Site modernizado carregado com sucesso!');
+    console.log('🚀 RS InfoWeb - Sistema de expansão ativado com sucesso!');
 });
 
