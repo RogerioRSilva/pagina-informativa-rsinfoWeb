@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RS InfoWeb - InfoPage</title>
+    <title>RS InfoWeb - Assistência Técnica Premium</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Partículas de fundo -->
+    <div class="particles-bg" id="particles-js"></div>
+    
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top shadow-sm custom-navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar glass-effect">
             <div class="container-fluid px-0 py-0" role="navigation" aria-label="Navegação principal">
                 <div class="d-flex flex-row align-items-center justify-content-between w-100 py-2 px-2 px-md-4">
                     <!-- LOGO à esquerda -->
-                    <div class="d-flex align-items-center" style="min-width:180px;">
+                    <div class="d-flex align-items-center logo-container" style="min-width:180px;">
                         <a class="navbar-brand d-flex align-items-center m-0 p-0 logo-navbar-bg" href="#">
-                            <img src="img/LOGO RSInfoWeb OK.png" alt="Logo da RS InfoWeb" class="logo-navbar" aria-hidden="true">
+                            <img src="img/LOGO RSInfoWeb OK.png" alt="Logo da RS InfoWeb" class="logo-navbar pulse-animation" aria-hidden="true">
                         </a>
                     </div>
                     <!-- Dados da empresa centralizados -->
                     <div class="empresa-info flex-grow-1 ms-3">
                         <span class="title-header mb-1">Assistência Técnica Especializada em Notebooks</span><br>
-                        <span class="enderecoEmpresa d-block">Rua Dr. Afonso Infante Vieira Filho, 5041 - Franca, SP</span>
-                        <span class="telefone bi bi-telephone d-block"> (16) 99178-2850</span>
+                        <span class="enderecoEmpresa d-block"><i class="bi bi-geo-alt-fill me-2"></i>Rua Dr. Afonso Infante Vieira Filho, 5041 - Franca, SP</span>
+                        <span class="telefone d-block"><i class="bi bi-telephone-fill me-2"></i>(16) 99178-2850</span>
                     </div>
                     <!-- WhatsApp à direita -->
                     <div class="ms-3 d-flex align-items-center" style="min-width:150px;justify-content:flex-end;">
-                        <a href="https://wa.me/5516991782850" target="_blank" rel="noopener" class="btn btn-success d-flex align-items-center whatsapp-btn">
+                        <a href="https://wa.me/5516991782850" target="_blank" rel="noopener" class="btn btn-whatsapp d-flex align-items-center whatsapp-btn">
                             <i class="bi bi-whatsapp"></i> WhatsApp
                         </a>
                     </div>
@@ -37,38 +42,62 @@
             </div>
         </nav>
         <div class="header-hero text-center">
-            <h1 class="display-5 fw-bold pt-3 mb-2 mt-4" tabindex="0">Bem-vindo à RS InfoWeb</h1>
-            <p class="lead" tabindex="0">Dicas para cuidar do seu notebook, computador e impressora</p>
+            <h1 class="display-5 fw-bold pt-3 mb-2 mt-4 hero-title" tabindex="0">
+                Bem-vindo à RS InfoWeb
+            </h1>
+            <p class="lead hero-subtitle" tabindex="0">Soluções tecnológicas e dicas profissionais para seus equipamentos</p>
+            <div class="hero-badge">
+                <i class="bi bi-award-fill"></i> Excelência em Assistência Técnica
+            </div>
         </div>
     </header>
     <main class="container">
                 <!-- Cards principais para categorias -->
                 <section class="container d-flex flex-column align-items-center justify-content-center py-2">
+                    <div class="section-header text-center mb-5">
+                        <h2 class="section-title">Nossos Serviços</h2>
+                        <p class="section-subtitle">Escolha uma categoria para ver dicas profissionais</p>
+                    </div>
                     <div class="row justify-content-center g-4 w-100" style="margin-top:0;margin-bottom:0;">
                                 <div class="col-12 col-md-4 mb-4">
-                                        <div class="card card-category h-100 shadow-lg border-0 text-center card-clickable" data-category="notebooks" tabindex="0" role="button" aria-label="Ver dicas de Notebooks" data-bs-toggle="modal" data-bs-target="#modalNotebooks">
+                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="notebooks" tabindex="0" role="button" aria-label="Ver dicas de Notebooks" data-bs-toggle="modal" data-bs-target="#modalNotebooks">
+                                                <div class="card-glow"></div>
                                                 <div class="card-body py-5">
-                                                        <span class="icon-gradient-bg"><i class="bi bi-laptop"></i></span>
-                                                        <h2 class="card-title mb-2 mt-4">Cuidados com Notebooks</h2>
-                                                        <p class="card-text">Veja dicas para prolongar a vida útil e o desempenho do seu notebook.</p>
+                                                        <div class="icon-wrapper">
+                                                            <span class="icon-gradient-bg icon-pulse"><i class="bi bi-laptop"></i></span>
+                                                            <div class="icon-ring"></div>
+                                                        </div>
+                                                        <h2 class="card-title mb-2 mt-4">Notebooks</h2>
+                                                        <p class="card-text">Dicas profissionais para prolongar a vida útil e otimizar o desempenho</p>
+                                                        <div class="card-arrow"><i class="bi bi-arrow-right-circle"></i></div>
                                                 </div>
                                         </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-4">
-                                        <div class="card card-category h-100 shadow-lg border-0 text-center card-clickable" data-category="computadores" tabindex="0" role="button" aria-label="Ver dicas de Computadores" data-bs-toggle="modal" data-bs-target="#modalComputadores">
+                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="computadores" tabindex="0" role="button" aria-label="Ver dicas de Computadores" data-bs-toggle="modal" data-bs-target="#modalComputadores">
+                                                <div class="card-glow"></div>
                                                 <div class="card-body py-5">
-                                                        <span class="icon-gradient-bg"><i class="bi bi-pc-display"></i></span>
-                                                        <h2 class="card-title mb-2 mt-4">Cuidados com Computadores</h2>
-                                                        <p class="card-text">Dicas essenciais para manter seu computador sempre em ordem.</p>
+                                                        <div class="icon-wrapper">
+                                                            <span class="icon-gradient-bg icon-pulse"><i class="bi bi-pc-display"></i></span>
+                                                            <div class="icon-ring"></div>
+                                                        </div>
+                                                        <h2 class="card-title mb-2 mt-4">Computadores</h2>
+                                                        <p class="card-text">Manutenção essencial para máximo desempenho e durabilidade</p>
+                                                        <div class="card-arrow"><i class="bi bi-arrow-right-circle"></i></div>
                                                 </div>
                                         </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-4">
-                                        <div class="card card-category h-100 shadow-lg border-0 text-center card-clickable" data-category="impressoras" tabindex="0" role="button" aria-label="Ver dicas de Impressoras" data-bs-toggle="modal" data-bs-target="#modalImpressoras">
+                                        <div class="card card-category card-tech h-100 border-0 text-center card-clickable" data-category="impressoras" tabindex="0" role="button" aria-label="Ver dicas de Impressoras" data-bs-toggle="modal" data-bs-target="#modalImpressoras">
+                                                <div class="card-glow"></div>
                                                 <div class="card-body py-5">
-                                                        <span class="icon-gradient-bg"><i class="bi bi-printer"></i></span>
-                                                        <h2 class="card-title mb-2 mt-4">Cuidados com Impressoras</h2>
-                                                        <p class="card-text">Saiba como evitar problemas e aumentar a durabilidade da sua impressora.</p>
+                                                        <div class="icon-wrapper">
+                                                            <span class="icon-gradient-bg icon-pulse"><i class="bi bi-printer"></i></span>
+                                                            <div class="icon-ring"></div>
+                                                        </div>
+                                                        <h2 class="card-title mb-2 mt-4">Impressoras</h2>
+                                                        <p class="card-text">Previna problemas e maximize a vida útil do seu equipamento</p>
+                                                        <div class="card-arrow"><i class="bi bi-arrow-right-circle"></i></div>
                                                 </div>
                                         </div>
                                 </div>
@@ -83,7 +112,7 @@
                                 <h5 class="modal-title" id="modalNotebooksLabel"><i class="bi bi-laptop me-2"></i>Cuidados com Notebooks</h5>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                             </div>
-                            <div class="modal-body notebook-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                            <div class="modal-body">
                                 <h6 class="fw-bold mt-2 mb-3 text-primary"><i class="bi bi-droplet me-2"></i>Limpeza e Higienização</h6>
                                 <ul class="mb-3">
                                     <li>Use pano de microfibra levemente umedecido com solução específica. Nunca aplique líquido diretamente na tela.</li>
@@ -150,7 +179,7 @@
                                 <h5 class="modal-title" id="modalComputadoresLabel"><i class="bi bi-pc-display me-2"></i>Cuidados com Computadores</h5>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                             </div>
-                            <div class="modal-body computador-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                            <div class="modal-body">
                                 <h6 class="fw-bold mt-2 mb-3 text-success"><i class="bi bi-droplet me-2"></i>Limpeza</h6>
                                 <ul class="mb-3">
                                     <li>Desligue e desconecte o computador da energia antes de iniciar a limpeza.</li>
@@ -199,7 +228,7 @@
                                 <h5 class="modal-title" id="modalImpressorasLabel"><i class="bi bi-printer me-2"></i>Cuidados com Impressoras</h5>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                             </div>
-                            <div class="modal-body impressora-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                            <div class="modal-body">
                                 <h6 class="fw-bold mt-2 mb-3 text-secondary"><i class="bi bi-droplet me-2"></i>Limpeza</h6>
                                 <ul class="mb-3">
                                     <li>Desligue e desconecte a impressora antes de limpar.</li>
@@ -240,11 +269,25 @@
                     </div>
                 </div>
     </main>
-    <footer class="footer fixed-bottom">
-        <p class="mb-0">RS InfoWeb &copy; 2026 | Assistência Técnica Especializada em Notebooks | <span aria-label="Telefone">(16) 99178-2850</span></p>
+    <footer class="footer fixed-bottom glass-effect">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <p class="mb-0"><i class="bi bi-c-circle me-1"></i>2026 RS InfoWeb</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="mb-0"><i class="bi bi-award-fill me-2"></i>Assistência Técnica Premium</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <p class="mb-0"><i class="bi bi-telephone-fill me-2"></i>(16) 99178-2850</p>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
